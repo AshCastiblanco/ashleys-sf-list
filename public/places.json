@@ -678,8 +678,12 @@
     "id": "andytown",
     "name": "Andytown Coffee Roasters",
     "neighborhood": "richmond",
-    "activities": ["cafe"],
-    "experiences": ["classic"],
+    "activities": [
+      "cafe"
+    ],
+    "experiences": [
+      "classic"
+    ],
     "note": "Snowy Plover + ocean air",
     "address": "3655 Lawton St, San Francisco, CA 94122"
   },
@@ -687,16 +691,24 @@
     "id": "ritual-coffee",
     "name": "Ritual Coffee Roasters",
     "neighborhood": "mission",
-    "activities": ["cafe"],
-    "experiences": ["classic"],
+    "activities": [
+      "cafe"
+    ],
+    "experiences": [
+      "classic"
+    ],
     "address": "1026 Valencia St, San Francisco, CA 94110"
   },
   {
     "id": "sightglass",
     "name": "Sightglass Coffee",
     "neighborhood": "fidi",
-    "activities": ["cafe"],
-    "experiences": ["elevated"],
+    "activities": [
+      "cafe"
+    ],
+    "experiences": [
+      "elevated"
+    ],
     "note": "SoMa flagship",
     "address": "270 7th St, San Francisco, CA 94103"
   },
@@ -704,16 +716,138 @@
     "id": "home-coffee",
     "name": "Home Coffee Roasters",
     "neighborhood": "nob-hill",
-    "activities": ["cafe"],
-    "experiences": ["vibes"],
+    "activities": [
+      "cafe"
+    ],
+    "experiences": [
+      "vibes"
+    ],
     "address": "2018 Polk St, San Francisco, CA 94109"
   },
   {
     "id": "coffee-movement",
     "name": "Coffee Movement",
     "neighborhood": "chinatown",
-    "activities": ["cafe"],
-    "experiences": ["discover"],
+    "activities": [
+      "cafe"
+    ],
+    "experiences": [
+      "discover"
+    ],
     "address": "1030 Washington St, San Francisco, CA 94108"
+  },
+  {
+    "id": "devils-teeth",
+    "name": "Devil's Teeth",
+    "neighborhood": "richmond",
+    "activities": [
+      "cafe"
+    ],
+    "experiences": [
+      "classic"
+    ],
+    "note": "Outer Sunset original \u2014 biscuits",
+    "address": "3876 Noriega St, San Francisco, CA 94122"
+  },
+  {
+    "id": "juniper-cafe",
+    "name": "Juniper Cafe",
+    "neighborhood": "nob-hill",
+    "activities": [
+      "cafe"
+    ],
+    "experiences": [
+      "elevated"
+    ],
+    "note": "from the Saint Frank folks",
+    "address": "1401 Polk St, San Francisco, CA 94109"
+  },
+  {
+    "id": "beacon-coffee",
+    "name": "Beacon Coffee",
+    "neighborhood": "north-beach",
+    "activities": [
+      "cafe"
+    ],
+    "experiences": [
+      "classic"
+    ],
+    "address": "805 Columbus Ave, San Francisco, CA 94133"
+  },
+  {
+    "id": "as-quoted",
+    "name": "As Quoted",
+    "neighborhood": "richmond",
+    "activities": [
+      "cafe",
+      "eat"
+    ],
+    "experiences": [
+      "elevated"
+    ],
+    "note": "Presidio Heights",
+    "address": "3613 Sacramento St, San Francisco, CA 94118"
+  },
+  {
+    "id": "reveille-coffee",
+    "name": "R\u00e9veille Coffee Co.",
+    "neighborhood": "north-beach",
+    "activities": [
+      "cafe"
+    ],
+    "experiences": [
+      "classic"
+    ],
+    "address": "200 Columbus Ave, San Francisco, CA 94133"
+  },
+  {
+    "id": "motoring-coffee",
+    "name": "Motoring Coffee",
+    "neighborhood": "marina",
+    "activities": [
+      "cafe"
+    ],
+    "experiences": [
+      "discover"
+    ],
+    "note": "Cow Hollow \u2014 cars + coffee",
+    "address": "1525 Union St, San Francisco, CA 94123"
+  },
+  {
+    "id": "saint-frank-coffee",
+    "name": "Saint Frank Coffee",
+    "neighborhood": "nob-hill",
+    "activities": [
+      "cafe"
+    ],
+    "experiences": [
+      "elevated"
+    ],
+    "note": "Russian Hill / Polk",
+    "address": "2340 Polk St, San Francisco, CA 94109"
+  },
+  {
+    "id": "another-cafe",
+    "name": "Another Cafe",
+    "neighborhood": "nob-hill",
+    "activities": [
+      "cafe"
+    ],
+    "experiences": [
+      "vibes"
+    ],
+    "address": "1191 Pine St, San Francisco, CA 94109"
+  },
+  {
+    "id": "beanstalk",
+    "name": "Beanstalk",
+    "neighborhood": "nob-hill",
+    "activities": [
+      "cafe"
+    ],
+    "experiences": [
+      "classic"
+    ],
+    "address": "724 Bush St, San Francisco, CA 94108"
   }
 ]
