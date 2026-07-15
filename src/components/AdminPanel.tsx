@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   ACTIVITIES,
+  DIETARY,
   EXPERIENCES,
   NEIGHBORHOODS,
   uniqueId,
   type ActivityId,
+  type DietaryId,
   type ExperienceId,
   type NeighborhoodId,
   type Place,
@@ -112,6 +114,13 @@ export function AdminPanel({
     });
   };
 
+  const toggleDietary = (place: Place, id: DietaryId) => {
+    const current = place.dietary ?? [];
+    const has = current.includes(id);
+    const next = has ? current.filter((d) => d !== id) : [...current, id];
+    updatePlace(place.id, { dietary: next.length ? next : undefined });
+  };
+
   const addPlace = () => {
     const name = newName.trim();
     if (!name) return;
@@ -213,6 +222,16 @@ export function AdminPanel({
                     onChange={(e) => updatePlace(p.id, { note: e.target.value || undefined })}
                     aria-label={`Note for ${p.name}`}
                   />
+                  <input
+                    className="admin-input admin-input--address"
+                    value={p.address ?? ''}
+                    placeholder="Address (optional)"
+                    onChange={(e) => {
+                      const address = e.target.value.trim();
+                      updatePlace(p.id, { address: address || undefined });
+                    }}
+                    aria-label={`Address for ${p.name}`}
+                  />
                   <div className="admin-field">
                     <span className="admin-field-label">Neighborhood</span>
                     <div className="admin-cats">
@@ -265,6 +284,25 @@ export function AdminPanel({
                             aria-pressed={on}
                           >
                             {e.emoji} {e.label}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                  <div className="admin-field">
+                    <span className="admin-field-label">Dietary</span>
+                    <div className="admin-cats">
+                      {DIETARY.map((d) => {
+                        const on = (p.dietary ?? []).includes(d.id);
+                        return (
+                          <button
+                            key={d.id}
+                            className={`admin-cat${on ? ' admin-cat--on' : ''}`}
+                            style={{ '--accent': d.accent } as React.CSSProperties}
+                            onClick={() => toggleDietary(p, d.id)}
+                            aria-pressed={on}
+                          >
+                            {d.emoji} {d.label}
                           </button>
                         );
                       })}

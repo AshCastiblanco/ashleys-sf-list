@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import {
   ACTIVITY_MAP,
+  DIETARY_MAP,
   EXPERIENCE_MAP,
   NEIGHBORHOOD_MAP,
   type Place,
@@ -12,9 +13,21 @@ interface PlaceCardProps {
   onToggleVisited: (id: string) => void;
 }
 
+function mapsUrl(place: Place): string | undefined {
+  if (place.lat != null && place.lng != null) {
+    return `https://www.google.com/maps/search/?api=1&query=${place.lat},${place.lng}`;
+  }
+  if (place.address) {
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.address)}`;
+  }
+  return undefined;
+}
+
 export function PlaceCard({ place, visited, onToggleVisited }: PlaceCardProps) {
   const primary = ACTIVITY_MAP[place.activities[0]] ?? ACTIVITY_MAP.eat;
   const neighborhood = NEIGHBORHOOD_MAP[place.neighborhood];
+  const mapLink = mapsUrl(place);
+  const dietary = place.dietary ?? [];
 
   return (
     <motion.li
@@ -44,6 +57,20 @@ export function PlaceCard({ place, visited, onToggleVisited }: PlaceCardProps) {
           </button>
         </div>
         <h3 className="card-name">{place.name}</h3>
+        {place.address && (
+          mapLink ? (
+            <a
+              className="card-address"
+              href={mapLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {place.address}
+            </a>
+          ) : (
+            <p className="card-address">{place.address}</p>
+          )
+        )}
         {place.note && <p className="card-note">{place.note}</p>}
         <div className="card-tags">
           {neighborhood && (
@@ -73,6 +100,19 @@ export function PlaceCard({ place, visited, onToggleVisited }: PlaceCardProps) {
                 style={{ '--accent': experience.accent } as React.CSSProperties}
               >
                 {experience.label}
+              </span>
+            );
+          })}
+          {dietary.map((id) => {
+            const tag = DIETARY_MAP[id];
+            if (!tag) return null;
+            return (
+              <span
+                key={id}
+                className="tag tag--dietary"
+                style={{ '--accent': tag.accent } as React.CSSProperties}
+              >
+                {tag.emoji} {tag.label}
               </span>
             );
           })}

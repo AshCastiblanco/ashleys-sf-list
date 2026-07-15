@@ -126,6 +126,62 @@ body {
   box-shadow: var(--shadow);
 }
 
+.filter-bar--collapsed {
+  gap: 8px;
+  padding-bottom: 10px;
+}
+
+.filter-bar-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-bar-header .search-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.filter-toggle {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.filter-toggle:hover {
+  border-color: var(--gold);
+}
+
+.filter-toggle-chevron {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.filter-summary {
+  margin: 0;
+  padding: 0 2px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.filter-bar-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow: hidden;
+}
+
 .search-wrap {
   position: relative;
 }
@@ -306,6 +362,20 @@ body {
   letter-spacing: -0.01em;
 }
 
+.card-address {
+  display: block;
+  margin: 6px 0 0;
+  font-size: 12.5px;
+  line-height: 1.35;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+a.card-address:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
 .card-note {
   margin: 5px 0 0;
   font-size: 13.5px;
@@ -342,6 +412,11 @@ body {
 .tag--exp {
   border-style: dashed;
   opacity: 0.85;
+}
+
+.tag--dietary {
+  border-style: solid;
+  font-weight: 700;
 }
 
 /* ---- Visited state ---- */
@@ -598,6 +673,10 @@ body {
 }
 
 .admin-input--note {
+  font-size: 13px;
+}
+
+.admin-input--address {
   font-size: 13px;
 }
 

@@ -27,6 +27,8 @@ export type ExperienceId =
   | 'discover'
   | 'classic';
 
+export type DietaryId = 'gluten-free' | 'dairy-free';
+
 export interface Tag<TId extends string> {
   id: TId;
   label: string;
@@ -37,6 +39,7 @@ export interface Tag<TId extends string> {
 export type Neighborhood = Tag<NeighborhoodId>;
 export type Activity = Tag<ActivityId>;
 export type Experience = Tag<ExperienceId>;
+export type Dietary = Tag<DietaryId>;
 
 export interface Place {
   id: string;
@@ -45,6 +48,10 @@ export interface Place {
   activities: ActivityId[];
   experiences: ExperienceId[];
   note?: string;
+  address?: string;
+  lat?: number;
+  lng?: number;
+  dietary?: DietaryId[];
 }
 
 export const NEIGHBORHOODS: Neighborhood[] = [
@@ -79,6 +86,11 @@ export const EXPERIENCES: Experience[] = [
   { id: 'classic', label: 'Classic', emoji: '⭐', accent: '#6b4a2b' },
 ];
 
+export const DIETARY: Dietary[] = [
+  { id: 'gluten-free', label: 'Gluten free', emoji: '🌾', accent: '#8b6914' },
+  { id: 'dairy-free', label: 'Dairy free', emoji: '🥛', accent: '#3d6b8a' },
+];
+
 export const NEIGHBORHOOD_MAP: Record<NeighborhoodId, Neighborhood> = Object.fromEntries(
   NEIGHBORHOODS.map((n) => [n.id, n]),
 ) as Record<NeighborhoodId, Neighborhood>;
@@ -90,6 +102,10 @@ export const ACTIVITY_MAP: Record<ActivityId, Activity> = Object.fromEntries(
 export const EXPERIENCE_MAP: Record<ExperienceId, Experience> = Object.fromEntries(
   EXPERIENCES.map((e) => [e.id, e]),
 ) as Record<ExperienceId, Experience>;
+
+export const DIETARY_MAP: Record<DietaryId, Dietary> = Object.fromEntries(
+  DIETARY.map((d) => [d.id, d]),
+) as Record<DietaryId, Dietary>;
 
 export function slugify(name: string): string {
   return name

@@ -13,7 +13,7 @@
   {
     "id": "bodega",
     "name": "Bodega",
-    "neighborhood": "mission",
+    "neighborhood": "north-beach",
     "activities": [
       "wine"
     ],
@@ -35,7 +35,7 @@
   {
     "id": "golden-sardine",
     "name": "Golden Sardine",
-    "neighborhood": "mission",
+    "neighborhood": "north-beach",
     "activities": [
       "wine"
     ],
@@ -58,7 +58,7 @@
   {
     "id": "waystone",
     "name": "Waystone",
-    "neighborhood": "richmond",
+    "neighborhood": "north-beach",
     "activities": [
       "wine"
     ],
@@ -69,7 +69,7 @@
   {
     "id": "key-klub",
     "name": "Key Klub",
-    "neighborhood": "mission",
+    "neighborhood": "nob-hill",
     "activities": [
       "wine"
     ],
@@ -103,7 +103,7 @@
   {
     "id": "murphy-s-pub",
     "name": "Murphy's Pub",
-    "neighborhood": "richmond",
+    "neighborhood": "fidi",
     "activities": [
       "beer"
     ],
@@ -147,7 +147,7 @@
   {
     "id": "peacekeeper",
     "name": "Peacekeeper",
-    "neighborhood": "mission",
+    "neighborhood": "nob-hill",
     "activities": [
       "cocktails"
     ],
@@ -158,7 +158,7 @@
   {
     "id": "harper-rhye",
     "name": "Harper & Rhye",
-    "neighborhood": "marina",
+    "neighborhood": "nob-hill",
     "activities": [
       "cocktails"
     ],
@@ -169,7 +169,7 @@
   {
     "id": "bar-darling",
     "name": "Bar Darling",
-    "neighborhood": "mission",
+    "neighborhood": "marina",
     "activities": [
       "cocktails"
     ],
@@ -180,7 +180,7 @@
   {
     "id": "april-jean",
     "name": "April Jean",
-    "neighborhood": "marina",
+    "neighborhood": "north-beach",
     "activities": [
       "cocktails"
     ],
@@ -191,7 +191,7 @@
   {
     "id": "left-door",
     "name": "Left Door",
-    "neighborhood": "fillmore",
+    "neighborhood": "marina",
     "activities": [
       "cocktails"
     ],
@@ -237,7 +237,7 @@
   {
     "id": "bar-morella",
     "name": "Bar Morella",
-    "neighborhood": "mission",
+    "neighborhood": "marina",
     "activities": [
       "cocktails"
     ],
@@ -248,7 +248,7 @@
   {
     "id": "persona",
     "name": "Persona",
-    "neighborhood": "mission",
+    "neighborhood": "nob-hill",
     "activities": [
       "cocktails"
     ],
@@ -259,7 +259,7 @@
   {
     "id": "hi-lo",
     "name": "Hi Lo",
-    "neighborhood": "marina",
+    "neighborhood": "nob-hill",
     "activities": [
       "cocktails"
     ],
@@ -281,7 +281,7 @@
   {
     "id": "boardroom",
     "name": "Boardroom",
-    "neighborhood": "marina",
+    "neighborhood": "north-beach",
     "activities": [
       "cocktails"
     ],
@@ -292,7 +292,7 @@
   {
     "id": "northstar",
     "name": "Northstar",
-    "neighborhood": "marina",
+    "neighborhood": "north-beach",
     "activities": [
       "cocktails"
     ],
@@ -314,7 +314,7 @@
   {
     "id": "bar-crem",
     "name": "Bar Crem",
-    "neighborhood": "mission",
+    "neighborhood": "marina",
     "activities": [
       "cocktails"
     ],
@@ -325,7 +325,7 @@
   {
     "id": "the-page",
     "name": "The Page",
-    "neighborhood": "fillmore",
+    "neighborhood": "haight",
     "activities": [
       "cocktails"
     ],
@@ -348,7 +348,7 @@
   {
     "id": "back-to-back",
     "name": "Back to Back",
-    "neighborhood": "mission",
+    "neighborhood": "nob-hill",
     "activities": [
       "eat"
     ],
@@ -502,7 +502,7 @@
   {
     "id": "out-of-sight-2",
     "name": "Out of Sight 2",
-    "neighborhood": "mission",
+    "neighborhood": "chinatown",
     "activities": [
       "eat"
     ],

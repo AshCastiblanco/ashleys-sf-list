@@ -4,9 +4,14 @@ import { FilterBar, type Filters } from './components/FilterBar';
 import { PlaceCard } from './components/PlaceCard';
 import { AdminPanel } from './components/AdminPanel';
 import { usePlaces } from './hooks/usePlaces';
-import { ACTIVITIES, EXPERIENCES, NEIGHBORHOODS, type Place } from './data/places';
+import { ACTIVITIES, DIETARY, EXPERIENCES, NEIGHBORHOODS, type Place } from './data/places';
 
-const NO_FILTERS: Filters = { neighborhood: 'any', activity: 'any', experience: 'any' };
+const NO_FILTERS: Filters = {
+  neighborhood: 'any',
+  activity: 'any',
+  experience: 'any',
+  dietary: 'any',
+};
 
 const VISITED_KEY = 'ashleys-sf-visited';
 const NO_PLACES: never[] = [];
@@ -18,6 +23,15 @@ function loadVisited(): Set<string> {
   } catch {
     return new Set();
   }
+}
+
+function matchesQuery(p: Place, q: string): boolean {
+  if (q === '') return true;
+  return (
+    p.name.toLowerCase().includes(q) ||
+    (p.note ?? '').toLowerCase().includes(q) ||
+    (p.address ?? '').toLowerCase().includes(q)
+  );
 }
 
 export default function App() {
@@ -75,27 +89,30 @@ export default function App() {
     filters.neighborhood !== 'any' ||
     filters.activity !== 'any' ||
     filters.experience !== 'any' ||
+    filters.dietary !== 'any' ||
     query.trim() !== '';
 
   const counts = useMemo(() => {
     const q = query.trim().toLowerCase();
-    const matchesQuery = (p: Place) =>
-      q === '' || p.name.toLowerCase().includes(q) || (p.note ?? '').toLowerCase().includes(q);
 
     // Counts within a dimension reflect the OTHER active filters (plus search),
     // so the numbers stay meaningful as you narrow things down.
     const base = (ignore: keyof Filters) =>
       allPlaces.filter(
         (p) =>
-          matchesQuery(p) &&
+          matchesQuery(p, q) &&
           (ignore === 'neighborhood' || filters.neighborhood === 'any' || p.neighborhood === filters.neighborhood) &&
           (ignore === 'activity' || filters.activity === 'any' || p.activities.includes(filters.activity)) &&
-          (ignore === 'experience' || filters.experience === 'any' || p.experiences.includes(filters.experience)),
+          (ignore === 'experience' || filters.experience === 'any' || p.experiences.includes(filters.experience)) &&
+          (ignore === 'dietary' ||
+            filters.dietary === 'any' ||
+            (p.dietary ?? []).includes(filters.dietary)),
       );
 
     const nbBase = base('neighborhood');
     const acBase = base('activity');
     const exBase = base('experience');
+    const diBase = base('dietary');
 
     const neighborhood: Record<string, number> = { any: nbBase.length };
     for (const n of NEIGHBORHOODS) neighborhood[n.id] = nbBase.filter((p) => p.neighborhood === n.id).length;
@@ -106,20 +123,27 @@ export default function App() {
     const experience: Record<string, number> = { any: exBase.length };
     for (const e of EXPERIENCES) experience[e.id] = exBase.filter((p) => p.experiences.includes(e.id)).length;
 
-    return { neighborhood, activity, experience };
+    const dietary: Record<string, number> = { any: diBase.length };
+    for (const d of DIETARY) dietary[d.id] = diBase.filter((p) => (p.dietary ?? []).includes(d.id)).length;
+
+    return { neighborhood, activity, experience, dietary };
   }, [allPlaces, filters, query]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return allPlaces.filter((p) => {
-      const matchesQuery =
-        q === '' ||
-        p.name.toLowerCase().includes(q) ||
-        (p.note ?? '').toLowerCase().includes(q);
       const matchesNeighborhood = filters.neighborhood === 'any' || p.neighborhood === filters.neighborhood;
       const matchesActivity = filters.activity === 'any' || p.activities.includes(filters.activity);
       const matchesExperience = filters.experience === 'any' || p.experiences.includes(filters.experience);
-      return matchesQuery && matchesNeighborhood && matchesActivity && matchesExperience;
+      const matchesDietary =
+        filters.dietary === 'any' || (p.dietary ?? []).includes(filters.dietary);
+      return (
+        matchesQuery(p, q) &&
+        matchesNeighborhood &&
+        matchesActivity &&
+        matchesExperience &&
+        matchesDietary
+      );
     });
   }, [allPlaces, filters, query]);
 
