@@ -24,13 +24,15 @@
   {
     "id": "beretta",
     "name": "Beretta",
-    "neighborhood": "mission",
+    "neighborhood": "fillmore",
     "activities": [
       "wine"
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "note": "NoPa / Divisadero",
+    "address": "661 Divisadero St, San Francisco, CA 94117"
   },
   {
     "id": "golden-sardine",
