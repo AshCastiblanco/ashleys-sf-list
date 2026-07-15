@@ -13,7 +13,7 @@ import {
   type Place,
 } from '../data/places';
 
-const REPO = 'ben-berube/ashleys-sf-list';
+const REPO = 'AshCastiblanco/ashleys-sf-list';
 const FILE_PATH = 'public/places.json';
 const TOKEN_KEY = 'ashleys-sf-admin-token';
 
