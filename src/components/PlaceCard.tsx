@@ -13,14 +13,18 @@ interface PlaceCardProps {
   onToggleVisited: (id: string) => void;
 }
 
-function mapsUrl(place: Place): string | undefined {
+function mapsUrl(place: Place): string {
   if (place.lat != null && place.lng != null) {
     return `https://www.google.com/maps/search/?api=1&query=${place.lat},${place.lng}`;
   }
   if (place.address) {
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.address)}`;
   }
-  return undefined;
+  const query =
+    place.neighborhood === 'outside'
+      ? `${place.name} ${place.note ?? 'California'}`.trim()
+      : `${place.name} San Francisco`;
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 }
 
 export function PlaceCard({ place, visited, onToggleVisited }: PlaceCardProps) {
@@ -28,6 +32,7 @@ export function PlaceCard({ place, visited, onToggleVisited }: PlaceCardProps) {
   const neighborhood = NEIGHBORHOOD_MAP[place.neighborhood];
   const mapLink = mapsUrl(place);
   const dietary = place.dietary ?? [];
+  const addressLabel = place.address ?? 'Open in Maps';
 
   return (
     <motion.li
@@ -57,20 +62,16 @@ export function PlaceCard({ place, visited, onToggleVisited }: PlaceCardProps) {
           </button>
         </div>
         <h3 className="card-name">{place.name}</h3>
-        {place.address && (
-          mapLink ? (
-            <a
-              className="card-address"
-              href={mapLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {place.address}
-            </a>
-          ) : (
-            <p className="card-address">{place.address}</p>
-          )
-        )}
+        <a
+          className="card-address"
+          href={mapLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Open ${place.name} in Maps`}
+        >
+          <span className="card-address-pin" aria-hidden="true">📍</span>
+          {addressLabel}
+        </a>
         {place.note && <p className="card-note">{place.note}</p>}
         <div className="card-tags">
           {neighborhood && (

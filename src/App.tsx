@@ -3,6 +3,7 @@ import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import { FilterBar, type Filters } from './components/FilterBar';
 import { PlaceCard } from './components/PlaceCard';
 import { AdminPanel } from './components/AdminPanel';
+import { SuggestSpot } from './components/SuggestSpot';
 import { usePlaces } from './hooks/usePlaces';
 import { ACTIVITIES, DIETARY, EXPERIENCES, NEIGHBORHOODS, type Place } from './data/places';
 
@@ -233,6 +234,8 @@ export default function App() {
           )}
         </LayoutGroup>
       </main>
+
+      <SuggestSpot />
 
       <footer className="footer">
         <button

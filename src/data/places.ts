@@ -16,6 +16,7 @@ export type ActivityId =
   | 'beer'
   | 'cocktails'
   | 'eat'
+  | 'cafe'
   | 'outdoors'
   | 'explore';
 
@@ -73,6 +74,7 @@ export const ACTIVITIES: Activity[] = [
   { id: 'beer', label: 'Beer', emoji: '🍺', accent: '#c8861f' },
   { id: 'cocktails', label: 'Cocktails', emoji: '🍸', accent: '#ce1126' },
   { id: 'eat', label: 'Eat', emoji: '🍽️', accent: '#c1512f' },
+  { id: 'cafe', label: 'Cafe', emoji: '☕', accent: '#6b4226' },
   { id: 'outdoors', label: 'Outdoors', emoji: '🌿', accent: '#2e7d4f' },
   { id: 'explore', label: 'Explore', emoji: '🧭', accent: '#17767b' },
 ];

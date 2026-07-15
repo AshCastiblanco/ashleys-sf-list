@@ -673,5 +673,47 @@
     "experiences": [
       "discover"
     ]
+  },
+  {
+    "id": "andytown",
+    "name": "Andytown Coffee Roasters",
+    "neighborhood": "richmond",
+    "activities": ["cafe"],
+    "experiences": ["classic"],
+    "note": "Snowy Plover + ocean air",
+    "address": "3655 Lawton St, San Francisco, CA 94122"
+  },
+  {
+    "id": "ritual-coffee",
+    "name": "Ritual Coffee Roasters",
+    "neighborhood": "mission",
+    "activities": ["cafe"],
+    "experiences": ["classic"],
+    "address": "1026 Valencia St, San Francisco, CA 94110"
+  },
+  {
+    "id": "sightglass",
+    "name": "Sightglass Coffee",
+    "neighborhood": "fidi",
+    "activities": ["cafe"],
+    "experiences": ["elevated"],
+    "note": "SoMa flagship",
+    "address": "270 7th St, San Francisco, CA 94103"
+  },
+  {
+    "id": "home-coffee",
+    "name": "Home Coffee Roasters",
+    "neighborhood": "nob-hill",
+    "activities": ["cafe"],
+    "experiences": ["vibes"],
+    "address": "2018 Polk St, San Francisco, CA 94109"
+  },
+  {
+    "id": "coffee-movement",
+    "name": "Coffee Movement",
+    "neighborhood": "chinatown",
+    "activities": ["cafe"],
+    "experiences": ["discover"],
+    "address": "1030 Washington St, San Francisco, CA 94108"
   }
 ]
