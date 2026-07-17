@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
-  NEIGHBORHOODS,
   ACTIVITIES,
   EXPERIENCES,
   DIETARY,
-  NEIGHBORHOOD_MAP,
   ACTIVITY_MAP,
   EXPERIENCE_MAP,
   DIETARY_MAP,
   type ActivityId,
   type DietaryId,
   type ExperienceId,
+  type Neighborhood,
   type NeighborhoodId,
   type Tag,
 } from '../data/places';
@@ -36,6 +35,9 @@ interface FilterBarProps {
   query: string;
   onQueryChange: (q: string) => void;
   counts: FilterCounts;
+  neighborhoods: Neighborhood[];
+  showMapButton?: boolean;
+  onOpenMap?: () => void;
 }
 
 const COLLAPSED_KEY = 'ashleys-sf-filters-collapsed';
@@ -48,10 +50,12 @@ function loadCollapsed(): boolean {
   }
 }
 
-function activeFilterSummary(filters: Filters): string {
+function activeFilterSummary(filters: Filters, neighborhoods: Neighborhood[]): string {
   const parts: string[] = [];
   if (filters.neighborhood !== 'any') {
-    parts.push(NEIGHBORHOOD_MAP[filters.neighborhood]?.label ?? filters.neighborhood);
+    parts.push(
+      neighborhoods.find((n) => n.id === filters.neighborhood)?.label ?? filters.neighborhood,
+    );
   }
   if (filters.activity !== 'any') {
     parts.push(ACTIVITY_MAP[filters.activity]?.label ?? filters.activity);
@@ -65,9 +69,18 @@ function activeFilterSummary(filters: Filters): string {
   return parts.join(' · ');
 }
 
-export function FilterBar({ filters, onChange, query, onQueryChange, counts }: FilterBarProps) {
+export function FilterBar({
+  filters,
+  onChange,
+  query,
+  onQueryChange,
+  counts,
+  neighborhoods,
+  showMapButton,
+  onOpenMap,
+}: FilterBarProps) {
   const [collapsed, setCollapsed] = useState(loadCollapsed);
-  const summary = activeFilterSummary(filters);
+  const summary = activeFilterSummary(filters, neighborhoods);
 
   useEffect(() => {
     try {
@@ -93,7 +106,15 @@ export function FilterBar({ filters, onChange, query, onQueryChange, counts }: F
             onChange={(e) => onQueryChange(e.target.value)}
             aria-label="Search places"
           />
+          <span className="search-cable-car" aria-hidden="true">
+            <CableCarIcon />
+          </span>
         </div>
+        {showMapButton && onOpenMap && (
+          <button type="button" className="filter-map-btn" onClick={onOpenMap}>
+            Map
+          </button>
+        )}
         <button
           type="button"
           className="filter-toggle"
@@ -129,7 +150,7 @@ export function FilterBar({ filters, onChange, query, onQueryChange, counts }: F
               groupId="neighborhood"
               label="Neighborhood"
               anyEmoji="🌉"
-              options={NEIGHBORHOODS}
+              options={neighborhoods}
               active={filters.neighborhood}
               counts={counts.neighborhood}
               onSelect={(id) => onChange({ ...filters, neighborhood: id as NeighborhoodId | 'any' })}
@@ -190,7 +211,7 @@ function FilterGroup({ groupId, label, anyEmoji, options, active, counts, onSele
           emoji={anyEmoji}
           label="Any"
           count={counts.any ?? 0}
-          accent="#b8860b"
+          accent="#b33a2b"
         />
         {options.map((opt) => (
           <Chip
@@ -202,6 +223,7 @@ function FilterGroup({ groupId, label, anyEmoji, options, active, counts, onSele
             label={opt.label}
             count={counts[opt.id] ?? 0}
             accent={opt.accent}
+            showCableCar={opt.id === 'cafe' || opt.id === 'explore'}
           />
         ))}
       </div>
@@ -217,9 +239,31 @@ interface ChipProps {
   label: string;
   count: number;
   accent: string;
+  showCableCar?: boolean;
 }
 
-function Chip({ pillId, isActive, onClick, emoji, label, count, accent }: ChipProps) {
+function CableCarIcon() {
+  return (
+    <svg className="chip-cable-car" viewBox="0 0 72 48" fill="none" aria-hidden="true">
+      <path d="M2 40 H70" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.45" />
+      <path d="M36 4 V12" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" opacity="0.55" />
+      <path d="M14 16 H58 L54 12 H18 Z" fill="currentColor" />
+      <rect x="16" y="16" width="40" height="18" rx="1.5" fill="currentColor" />
+      <rect x="20" y="19" width="7" height="7" rx="0.8" className="chip-cable-car-glass" />
+      <rect x="30" y="19" width="7" height="7" rx="0.8" className="chip-cable-car-glass" />
+      <rect x="40" y="19" width="7" height="7" rx="0.8" className="chip-cable-car-glass" />
+      <path d="M49 16 V34" className="chip-cable-car-line" strokeWidth="1.2" opacity="0.7" />
+      <path d="M16 34 L10 38 H18" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" fill="none" />
+      <path d="M56 34 L62 38 H54" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" fill="none" />
+      <circle cx="24" cy="38" r="3" fill="currentColor" />
+      <circle cx="48" cy="38" r="3" fill="currentColor" />
+      <circle cx="24" cy="38" r="1.2" className="chip-cable-car-glass" />
+      <circle cx="48" cy="38" r="1.2" className="chip-cable-car-glass" />
+    </svg>
+  );
+}
+
+function Chip({ pillId, isActive, onClick, emoji, label, count, accent, showCableCar }: ChipProps) {
   return (
     <button
       role="tab"
@@ -236,7 +280,9 @@ function Chip({ pillId, isActive, onClick, emoji, label, count, accent }: ChipPr
         />
       )}
       <span className="chip-content">
-        <span className="chip-emoji" aria-hidden="true">{emoji}</span>
+        {showCableCar ? <CableCarIcon /> : (
+          <span className="chip-emoji" aria-hidden="true">{emoji}</span>
+        )}
         {label}
         <span className="chip-count">{count}</span>
       </span>

@@ -1,11 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
+import { draftStorageKey, type CityId } from '../data/cities';
 import type { Place } from '../data/places';
 
-const DRAFT_KEY = 'ashleys-sf-draft';
-
-function loadDraft(): Place[] | null {
+function loadDraft(city: CityId): Place[] | null {
   try {
-    const raw = localStorage.getItem(DRAFT_KEY);
+    const raw = localStorage.getItem(draftStorageKey(city));
     return raw ? (JSON.parse(raw) as Place[]) : null;
   } catch {
     return null;
@@ -13,17 +12,22 @@ function loadDraft(): Place[] | null {
 }
 
 /**
- * Published data lives in public/places.json (fetched at runtime so admin
+ * Published data lives in public/places-{city}.json (fetched at runtime so admin
  * commits show up after each deploy). A local draft in localStorage overlays
  * it while Ashley is editing, before she publishes.
  */
-export function usePlaces() {
+export function usePlaces(cityId: CityId, placesPath: string) {
   const [published, setPublished] = useState<Place[] | null>(null);
-  const [draft, setDraftState] = useState<Place[] | null>(loadDraft);
+  const [draft, setDraftState] = useState<Place[] | null>(() => loadDraft(cityId));
+
+  useEffect(() => {
+    setDraftState(loadDraft(cityId));
+    setPublished(null);
+  }, [cityId]);
 
   useEffect(() => {
     let cancelled = false;
-    fetch(`${import.meta.env.BASE_URL}places.json`)
+    fetch(`${import.meta.env.BASE_URL}${placesPath}`)
       .then((r) => r.json())
       .then((data: Place[]) => {
         if (!cancelled) setPublished(data);
@@ -34,17 +38,21 @@ export function usePlaces() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [placesPath]);
 
-  const setDraft = useCallback((next: Place[] | null) => {
-    setDraftState(next);
-    try {
-      if (next === null) localStorage.removeItem(DRAFT_KEY);
-      else localStorage.setItem(DRAFT_KEY, JSON.stringify(next));
-    } catch {
-      // localStorage unavailable (private mode) — draft stays in memory only
-    }
-  }, []);
+  const setDraft = useCallback(
+    (next: Place[] | null) => {
+      setDraftState(next);
+      try {
+        const key = draftStorageKey(cityId);
+        if (next === null) localStorage.removeItem(key);
+        else localStorage.setItem(key, JSON.stringify(next));
+      } catch {
+        // localStorage unavailable (private mode) — draft stays in memory only
+      }
+    },
+    [cityId],
+  );
 
   const markPublished = useCallback(
     (places: Place[]) => {

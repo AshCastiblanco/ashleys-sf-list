@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 /**
  * One-time enrichment: look up each place on Google Places (New) Text Search
- * and write address / lat / lng back into public/places.json.
+ * and write address / lat / lng back into public/places-{sf|nyc}.json.
  *
  * Usage:
  *   GOOGLE_PLACES_API_KEY=... npm run enrich:addresses
+ *   GOOGLE_PLACES_API_KEY=... npm run enrich:addresses -- nyc
  *   # or put the key in a local .env file
  */
 
@@ -14,7 +15,10 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
-const placesPath = join(root, 'public', 'places.json');
+const cityArg = (process.argv[2] || 'sf').toLowerCase();
+const city = cityArg === 'nyc' ? 'nyc' : 'sf';
+const cityLabel = city === 'nyc' ? 'New York NY' : 'San Francisco CA';
+const placesPath = join(root, 'public', `places-${city}.json`);
 const delayMs = 200;
 
 function loadEnv() {
@@ -44,9 +48,9 @@ function sleep(ms) {
 function buildQuery(place) {
   if (place.neighborhood === 'outside') {
     const hint = place.note?.trim();
-    return hint ? `${place.name} ${hint}` : `${place.name} California`;
+    return hint ? `${place.name} ${hint}` : `${place.name} ${cityLabel}`;
   }
-  return `${place.name} San Francisco CA`;
+  return `${place.name} ${cityLabel}`;
 }
 
 async function searchPlace(apiKey, textQuery) {

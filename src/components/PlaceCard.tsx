@@ -3,7 +3,7 @@ import {
   ACTIVITY_MAP,
   DIETARY_MAP,
   EXPERIENCE_MAP,
-  NEIGHBORHOOD_MAP,
+  type Neighborhood,
   type Place,
 } from '../data/places';
 
@@ -11,9 +11,11 @@ interface PlaceCardProps {
   place: Place;
   visited: boolean;
   onToggleVisited: (id: string) => void;
+  mapsCitySuffix: string;
+  neighborhoods: Neighborhood[];
 }
 
-function mapsUrl(place: Place): string {
+function mapsUrl(place: Place, mapsCitySuffix: string): string {
   if (place.lat != null && place.lng != null) {
     return `https://www.google.com/maps/search/?api=1&query=${place.lat},${place.lng}`;
   }
@@ -22,15 +24,21 @@ function mapsUrl(place: Place): string {
   }
   const query =
     place.neighborhood === 'outside'
-      ? `${place.name} ${place.note ?? 'California'}`.trim()
-      : `${place.name} San Francisco`;
+      ? `${place.name} ${place.note ?? mapsCitySuffix}`.trim()
+      : `${place.name} ${mapsCitySuffix}`;
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 }
 
-export function PlaceCard({ place, visited, onToggleVisited }: PlaceCardProps) {
+export function PlaceCard({
+  place,
+  visited,
+  onToggleVisited,
+  mapsCitySuffix,
+  neighborhoods,
+}: PlaceCardProps) {
   const primary = ACTIVITY_MAP[place.activities[0]] ?? ACTIVITY_MAP.eat;
-  const neighborhood = NEIGHBORHOOD_MAP[place.neighborhood];
-  const mapLink = mapsUrl(place);
+  const neighborhood = neighborhoods.find((n) => n.id === place.neighborhood);
+  const mapLink = mapsUrl(place, mapsCitySuffix);
   const dietary = place.dietary ?? [];
   const addressLabel = place.address ?? 'Open in Maps';
 

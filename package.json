@@ -8,14 +8,17 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "enrich:addresses": "node scripts/enrich-addresses.mjs"
+    "enrich:addresses": "node scripts/enrich-addresses.mjs",
+    "geocode:sf": "node scripts/geocode-sf.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.42.2",
+    "leaflet": "^1.9.4",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   },
   "devDependencies": {
+    "@types/leaflet": "^1.9.21",
     "@types/node": "^24.13.2",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",

@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import type { CityConfig } from '../data/cities';
 import {
   ACTIVITIES,
   DIETARY,
   EXPERIENCES,
-  NEIGHBORHOODS,
   uniqueId,
   type ActivityId,
   type DietaryId,
@@ -14,7 +14,6 @@ import {
 } from '../data/places';
 
 const REPO = 'AshCastiblanco/ashleys-sf-list';
-const FILE_PATH = 'public/places.json';
 const TOKEN_KEY = 'ashleys-sf-admin-token';
 
 interface AdminPanelProps {
@@ -25,6 +24,7 @@ interface AdminPanelProps {
   onChange: (next: Place[]) => void;
   onDiscard: () => void;
   onPublished: (places: Place[]) => void;
+  city: CityConfig;
 }
 
 type PublishState =
@@ -33,8 +33,8 @@ type PublishState =
   | { kind: 'done' }
   | { kind: 'error'; message: string };
 
-async function publishToGitHub(places: Place[], token: string): Promise<void> {
-  const api = `https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`;
+async function publishToGitHub(places: Place[], token: string, filePath: string): Promise<void> {
+  const api = `https://api.github.com/repos/${REPO}/contents/${filePath}`;
   const headers = {
     Authorization: `Bearer ${token}`,
     Accept: 'application/vnd.github+json',
@@ -57,7 +57,7 @@ async function publishToGitHub(places: Place[], token: string): Promise<void> {
     method: 'PUT',
     headers,
     body: JSON.stringify({
-      message: "Update Ashley's list from the admin panel",
+      message: `Update ${filePath} from the admin panel`,
       content,
       sha,
       branch: 'main',
@@ -76,6 +76,7 @@ export function AdminPanel({
   onChange,
   onDiscard,
   onPublished,
+  city,
 }: AdminPanelProps) {
   const [token, setToken] = useState(() => localStorage.getItem(TOKEN_KEY) ?? '');
   const [publish, setPublish] = useState<PublishState>({ kind: 'idle' });
@@ -127,7 +128,7 @@ export function AdminPanel({
     const next: Place = {
       id: uniqueId(name, places),
       name,
-      neighborhood: 'mission',
+      neighborhood: city.defaultNeighborhood,
       activities: ['eat'],
       experiences: ['classic'],
     };
@@ -146,7 +147,7 @@ export function AdminPanel({
     }
     setPublish({ kind: 'working' });
     try {
-      await publishToGitHub(places, token.trim());
+      await publishToGitHub(places, token.trim(), `public/${city.placesPath}`);
       onPublished(places);
       setPublish({ kind: 'done' });
     } catch (e) {
@@ -235,7 +236,7 @@ export function AdminPanel({
                   <div className="admin-field">
                     <span className="admin-field-label">Neighborhood</span>
                     <div className="admin-cats">
-                      {NEIGHBORHOODS.map((n) => {
+                      {city.neighborhoods.map((n) => {
                         const on = p.neighborhood === n.id;
                         return (
                           <button

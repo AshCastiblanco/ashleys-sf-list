@@ -1,0 +1,83 @@
+[
+  {
+    "id": "buvette",
+    "name": "Buvette",
+    "neighborhood": "west-village",
+    "activities": ["wine", "eat"],
+    "experiences": ["classic", "vibes"],
+    "address": "42 Grove St"
+  },
+  {
+    "id": "joseph-leonard",
+    "name": "Joseph Leonard",
+    "neighborhood": "west-village",
+    "activities": ["eat", "cocktails"],
+    "experiences": ["classic"],
+    "address": "170 Waverly Pl"
+  },
+  {
+    "id": "cafe-mogador",
+    "name": "Cafe Mogador",
+    "neighborhood": "east-village",
+    "activities": ["eat", "cafe"],
+    "experiences": ["classic"],
+    "address": "101 St Marks Pl"
+  },
+  {
+    "id": "clandestino",
+    "name": "Clandestino",
+    "neighborhood": "les",
+    "activities": ["cocktails", "beer"],
+    "experiences": ["vibes", "discover"],
+    "address": "35 Avenue B"
+  },
+  {
+    "id": "rubirosa",
+    "name": "Rubirosa",
+    "neighborhood": "soho-nolita",
+    "activities": ["eat"],
+    "experiences": ["classic"],
+    "address": "235 Mulberry St"
+  },
+  {
+    "id": "devocion",
+    "name": "Devoción",
+    "neighborhood": "williamsburg",
+    "activities": ["cafe"],
+    "experiences": ["vibes"],
+    "note": "Colombian coffee",
+    "address": "69 Grand St, Brooklyn"
+  },
+  {
+    "id": "the-campbell",
+    "name": "The Campbell",
+    "neighborhood": "midtown",
+    "activities": ["cocktails"],
+    "experiences": ["elevated", "classic"],
+    "address": "15 Vanderbilt Ave"
+  },
+  {
+    "id": "barney-greengrass",
+    "name": "Barney Greengrass",
+    "neighborhood": "uws",
+    "activities": ["eat"],
+    "experiences": ["classic"],
+    "address": "541 Amsterdam Ave"
+  },
+  {
+    "id": "domino-park",
+    "name": "Domino Park",
+    "neighborhood": "williamsburg",
+    "activities": ["outdoors"],
+    "experiences": ["scenic"],
+    "address": "15 River St, Brooklyn"
+  },
+  {
+    "id": "strand-bookstore",
+    "name": "The Strand",
+    "neighborhood": "east-village",
+    "activities": ["explore"],
+    "experiences": ["classic", "discover"],
+    "address": "828 Broadway"
+  }
+]

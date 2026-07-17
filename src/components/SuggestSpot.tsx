@@ -1,13 +1,22 @@
-import { useState, type FormEvent } from 'react';
-import { ACTIVITIES, NEIGHBORHOODS, type ActivityId, type NeighborhoodId } from '../data/places';
+import { useEffect, useState, type FormEvent } from 'react';
+import type { CityConfig } from '../data/cities';
+import { ACTIVITIES, type ActivityId, type NeighborhoodId } from '../data/places';
 
 const ISSUES_URL = 'https://github.com/AshCastiblanco/ashleys-sf-list/issues/new';
 
-export function SuggestSpot() {
+interface SuggestSpotProps {
+  city: CityConfig;
+}
+
+export function SuggestSpot({ city }: SuggestSpotProps) {
   const [name, setName] = useState('');
   const [neighborhood, setNeighborhood] = useState<NeighborhoodId | ''>('');
   const [activity, setActivity] = useState<ActivityId | ''>('');
   const [note, setNote] = useState('');
+
+  useEffect(() => {
+    setNeighborhood('');
+  }, [city.id]);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -15,20 +24,21 @@ export function SuggestSpot() {
     if (!trimmed) return;
 
     const hoodLabel = neighborhood
-      ? NEIGHBORHOODS.find((n) => n.id === neighborhood)?.label ?? neighborhood
+      ? city.neighborhoods.find((n) => n.id === neighborhood)?.label ?? neighborhood
       : 'Not sure';
     const activityLabel = activity
       ? ACTIVITIES.find((a) => a.id === activity)?.label ?? activity
       : 'Not sure';
 
-    const title = `Suggestion: ${trimmed}`;
+    const title = `[${city.shortLabel}] Suggestion: ${trimmed}`;
     const body = [
+      `**City:** ${city.displayName}`,
       `**Place:** ${trimmed}`,
       `**Neighborhood:** ${hoodLabel}`,
       `**Activity:** ${activityLabel}`,
       note.trim() ? `**Note:** ${note.trim()}` : null,
       '',
-      '_Submitted from Ashley’s SF Guide suggest form._',
+      `_Submitted from ${city.suggestFormLabel} suggest form._`,
     ]
       .filter((line) => line !== null)
       .join('\n');
@@ -44,7 +54,7 @@ export function SuggestSpot() {
         <h2 id="suggest-heading" className="suggest-title">
           Suggest a spot
         </h2>
-        <p className="suggest-sub">Know a place Ashley should try? Send it her way.</p>
+        <p className="suggest-sub">Know a place Ashley should try in {city.displayName}? Send it her way.</p>
 
         <form className="suggest-form" onSubmit={handleSubmit}>
           <label className="suggest-field">
@@ -55,7 +65,7 @@ export function SuggestSpot() {
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="e.g. Tartine Manufactory"
+              placeholder="e.g. a favorite corner spot"
               aria-required="true"
             />
           </label>
@@ -69,7 +79,7 @@ export function SuggestSpot() {
                 onChange={(e) => setNeighborhood(e.target.value as NeighborhoodId | '')}
               >
                 <option value="">Not sure</option>
-                {NEIGHBORHOODS.map((n) => (
+                {city.neighborhoods.map((n) => (
                   <option key={n.id} value={n.id}>
                     {n.label}
                   </option>

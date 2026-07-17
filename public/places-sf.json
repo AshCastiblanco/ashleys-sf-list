@@ -8,7 +8,10 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "1754 Polk St",
+    "lat": 37.7931005,
+    "lng": -122.421082
   },
   {
     "id": "bodega",
@@ -19,7 +22,10 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "700 Columbus Ave",
+    "lat": 37.8012883,
+    "lng": -122.411387
   },
   {
     "id": "beretta",
@@ -32,7 +38,9 @@
       "classic"
     ],
     "note": "NoPa / Divisadero",
-    "address": "661 Divisadero St, San Francisco, CA 94117"
+    "address": "661 Divisadero St",
+    "lat": 37.7757565,
+    "lng": -122.4383156
   },
   {
     "id": "golden-sardine",
@@ -43,7 +51,8 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "362 Columbus Ave"
   },
   {
     "id": "qua-o-la",
@@ -55,7 +64,8 @@
     "experiences": [
       "discover"
     ],
-    "note": "new wine bar"
+    "note": "new wine bar",
+    "address": "1318 Grant Ave"
   },
   {
     "id": "waystone",
@@ -66,7 +76,8 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "1609 Powell St"
   },
   {
     "id": "key-klub",
@@ -77,7 +88,10 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "850 Bush St",
+    "lat": 37.7899577,
+    "lng": -122.4113323
   },
   {
     "id": "bar-crudo",
@@ -88,7 +102,10 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "655 Divisadero St",
+    "lat": 37.7757093,
+    "lng": -122.4381297
   },
   {
     "id": "fools-errand",
@@ -100,7 +117,8 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "639A Divisadero St"
   },
   {
     "id": "murphy-s-pub",
@@ -111,7 +129,10 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "217 Kearny St",
+    "lat": 37.7900928,
+    "lng": -122.4040639
   },
   {
     "id": "aces",
@@ -122,7 +143,10 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "998 Sutter St",
+    "lat": 37.7883091,
+    "lng": -122.416671
   },
   {
     "id": "standard-deviant",
@@ -133,7 +157,10 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "280 14th St",
+    "lat": 37.7684711,
+    "lng": -122.4194756
   },
   {
     "id": "el-chato",
@@ -144,7 +171,10 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "2301 Bryant St",
+    "lat": 37.7575118,
+    "lng": -122.4094386
   },
   {
     "id": "peacekeeper",
@@ -155,7 +185,10 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "925 Bush St",
+    "lat": 37.7895102,
+    "lng": -122.4125358
   },
   {
     "id": "harper-rhye",
@@ -166,7 +199,8 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "1695 Polk St"
   },
   {
     "id": "bar-darling",
@@ -177,7 +211,8 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "2263 Chestnut St"
   },
   {
     "id": "april-jean",
@@ -188,7 +223,8 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "1371 Grant Ave"
   },
   {
     "id": "left-door",
@@ -201,7 +237,10 @@
       "speakeasy",
       "elevated"
     ],
-    "note": "elevated chic"
+    "note": "elevated chic",
+    "address": "1905 Union St",
+    "lat": 37.7975942,
+    "lng": -122.4307445
   },
   {
     "id": "vesuvio-s",
@@ -212,7 +251,10 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "255 Columbus Ave",
+    "lat": 37.7974945,
+    "lng": -122.406449
   },
   {
     "id": "pellegrini-s",
@@ -223,7 +265,10 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "659 Columbus Ave",
+    "lat": 37.8008648,
+    "lng": -122.4113096
   },
   {
     "id": "off-the-record",
@@ -234,7 +279,8 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "501 Geary St"
   },
   {
     "id": "bar-morella",
@@ -245,7 +291,10 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "2001 Chestnut St",
+    "lat": 37.8006714,
+    "lng": -122.4364807
   },
   {
     "id": "persona",
@@ -256,7 +305,10 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "685 Sutter St",
+    "lat": 37.7887317,
+    "lng": -122.4115659
   },
   {
     "id": "hi-lo",
@@ -267,7 +319,8 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "1940 Polk St"
   },
   {
     "id": "busstop",
@@ -278,7 +331,8 @@
     ],
     "experiences": [
       "vibes"
-    ]
+    ],
+    "address": "1901 Union St"
   },
   {
     "id": "boardroom",
@@ -289,7 +343,10 @@
     ],
     "experiences": [
       "vibes"
-    ]
+    ],
+    "address": "1600 Powell St",
+    "lat": 37.7994533,
+    "lng": -122.4105373
   },
   {
     "id": "northstar",
@@ -300,7 +357,10 @@
     ],
     "experiences": [
       "vibes"
-    ]
+    ],
+    "address": "1560 Powell St",
+    "lat": 37.7992193,
+    "lng": -122.4104205
   },
   {
     "id": "brazen-head",
@@ -311,7 +371,10 @@
     ],
     "experiences": [
       "vibes"
-    ]
+    ],
+    "address": "3166 Buchanan St",
+    "lat": 37.7992905,
+    "lng": -122.4324396
   },
   {
     "id": "bar-crem",
@@ -322,7 +385,8 @@
     ],
     "experiences": [
       "vibes"
-    ]
+    ],
+    "address": "3131 Fillmore St"
   },
   {
     "id": "the-page",
@@ -333,7 +397,10 @@
     ],
     "experiences": [
       "vibes"
-    ]
+    ],
+    "address": "298 Divisadero St",
+    "lat": 37.7721197,
+    "lng": -122.4370577
   },
   {
     "id": "the-speakeasy",
@@ -356,7 +423,8 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "1257 Taylor St"
   },
   {
     "id": "lolita-s",
@@ -367,7 +435,8 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "2518 Mission St"
   },
   {
     "id": "state-bird-provisions",
@@ -378,7 +447,10 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "1529 Fillmore St",
+    "lat": 37.7837055,
+    "lng": -122.4329482
   },
   {
     "id": "fable",
@@ -389,7 +461,8 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "3985 17th St"
   },
   {
     "id": "horsefeather",
@@ -400,7 +473,8 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "528 Divisadero St"
   },
   {
     "id": "liholiho",
@@ -411,7 +485,10 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "871 Sutter St",
+    "lat": 37.7882003,
+    "lng": -122.4146082
   },
   {
     "id": "nopa",
@@ -422,7 +499,10 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "560 Divisadero St",
+    "lat": 37.7749054,
+    "lng": -122.4375084
   },
   {
     "id": "house-of-prime-rib",
@@ -433,7 +513,10 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "1906 Van Ness Ave",
+    "lat": 37.7933913,
+    "lng": -122.4225436
   },
   {
     "id": "boulevard",
@@ -444,7 +527,10 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "1 Mission St",
+    "lat": 37.7932361,
+    "lng": -122.3928913
   },
   {
     "id": "hookfish",
@@ -455,7 +541,8 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "4542 Irving St"
   },
   {
     "id": "kokkari",
@@ -466,7 +553,10 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "200 Jackson St",
+    "lat": 37.7969945,
+    "lng": -122.3996909
   },
   {
     "id": "cotogna",
@@ -477,7 +567,10 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "490 Pacific Ave",
+    "lat": 37.7974414,
+    "lng": -122.4035292
   },
   {
     "id": "tony-s",
@@ -488,7 +581,10 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "1570 Stockton St",
+    "lat": 37.8003332,
+    "lng": -122.4090513
   },
   {
     "id": "flour-water",
@@ -499,7 +595,10 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "2401 Harrison St",
+    "lat": 37.7589266,
+    "lng": -122.41238
   },
   {
     "id": "out-of-sight-2",
@@ -510,7 +609,8 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "643 Clay St"
   },
   {
     "id": "china-live",
@@ -521,7 +621,10 @@
     ],
     "experiences": [
       "classic"
-    ]
+    ],
+    "address": "644 Broadway",
+    "lat": 37.7979135,
+    "lng": -122.407877
   },
   {
     "id": "crissy-field-marina-green",
@@ -532,7 +635,8 @@
     ],
     "experiences": [
       "scenic"
-    ]
+    ],
+    "address": "Crissy Field, Mason St"
   },
   {
     "id": "golden-gate-park",
@@ -543,7 +647,8 @@
     ],
     "experiences": [
       "scenic"
-    ]
+    ],
+    "address": "Golden Gate Park, JFK Dr"
   },
   {
     "id": "panhandle",
@@ -554,7 +659,8 @@
     ],
     "experiences": [
       "scenic"
-    ]
+    ],
+    "address": "The Panhandle, Oak St & Baker St"
   },
   {
     "id": "embarcadero",
@@ -565,7 +671,10 @@
     ],
     "experiences": [
       "scenic"
-    ]
+    ],
+    "address": "The Embarcadero",
+    "lat": 37.7963746,
+    "lng": -122.3951692
   },
   {
     "id": "bernal-heights-park",
@@ -576,7 +685,8 @@
     ],
     "experiences": [
       "scenic"
-    ]
+    ],
+    "address": "Bernal Heights Blvd"
   },
   {
     "id": "corona-heights-park",
@@ -587,7 +697,8 @@
     ],
     "experiences": [
       "scenic"
-    ]
+    ],
+    "address": "Roosevelt Way & Museum Way"
   },
   {
     "id": "salesforce-tower-park",
@@ -598,7 +709,8 @@
     ],
     "experiences": [
       "scenic"
-    ]
+    ],
+    "address": "Salesforce Park, 425 Mission St"
   },
   {
     "id": "johnson-s-beach",
@@ -612,7 +724,8 @@
       "scenic",
       "discover"
     ],
-    "note": "Russian River"
+    "note": "Russian River",
+    "address": "16215 First St, Guerneville, CA"
   },
   {
     "id": "jack-s",
@@ -625,7 +738,8 @@
     "experiences": [
       "discover"
     ],
-    "note": "bar"
+    "note": "bar",
+    "address": "2545 24th St"
   },
   {
     "id": "hang-ah",
@@ -638,7 +752,8 @@
     "experiences": [
       "discover"
     ],
-    "note": "dim sum"
+    "note": "dim sum",
+    "address": "1 Pagoda Pl"
   },
   {
     "id": "pagan-idol",
@@ -650,7 +765,10 @@
     ],
     "experiences": [
       "discover"
-    ]
+    ],
+    "address": "375 Bush St",
+    "lat": 37.7907035,
+    "lng": -122.403638
   },
   {
     "id": "tonga",
@@ -662,7 +780,10 @@
     ],
     "experiences": [
       "discover"
-    ]
+    ],
+    "address": "950 Mason St",
+    "lat": 37.792141,
+    "lng": -122.410008
   },
   {
     "id": "rotunda",
@@ -674,7 +795,10 @@
     ],
     "experiences": [
       "discover"
-    ]
+    ],
+    "address": "150 Stockton St",
+    "lat": 37.787379,
+    "lng": -122.4062685
   },
   {
     "id": "andytown",
@@ -687,7 +811,9 @@
       "classic"
     ],
     "note": "Snowy Plover + ocean air",
-    "address": "3655 Lawton St, San Francisco, CA 94122"
+    "address": "3655 Lawton St, San Francisco, CA 94122",
+    "lat": 37.7567163,
+    "lng": -122.502318
   },
   {
     "id": "ritual-coffee",
@@ -699,7 +825,9 @@
     "experiences": [
       "classic"
     ],
-    "address": "1026 Valencia St, San Francisco, CA 94110"
+    "address": "1026 Valencia St, San Francisco, CA 94110",
+    "lat": 37.7564325,
+    "lng": -122.4212469
   },
   {
     "id": "sightglass",
@@ -712,7 +840,9 @@
       "elevated"
     ],
     "note": "SoMa flagship",
-    "address": "270 7th St, San Francisco, CA 94103"
+    "address": "270 7th St, San Francisco, CA 94103",
+    "lat": 37.7770339,
+    "lng": -122.4084399
   },
   {
     "id": "home-coffee",
@@ -736,7 +866,9 @@
     "experiences": [
       "discover"
     ],
-    "address": "1030 Washington St, San Francisco, CA 94108"
+    "address": "1030 Washington St, San Francisco, CA 94108",
+    "lat": 37.7947543,
+    "lng": -122.4103018
   },
   {
     "id": "devils-teeth",
@@ -748,8 +880,10 @@
     "experiences": [
       "classic"
     ],
-    "note": "Outer Sunset original \u2014 biscuits",
-    "address": "3876 Noriega St, San Francisco, CA 94122"
+    "note": "Outer Sunset original — biscuits",
+    "address": "3876 Noriega St, San Francisco, CA 94122",
+    "lat": 37.7531346,
+    "lng": -122.5050341
   },
   {
     "id": "juniper-cafe",
@@ -762,7 +896,9 @@
       "elevated"
     ],
     "note": "from the Saint Frank folks",
-    "address": "1401 Polk St, San Francisco, CA 94109"
+    "address": "1401 Polk St, San Francisco, CA 94109",
+    "lat": 37.7897377,
+    "lng": -122.420689
   },
   {
     "id": "beacon-coffee",
@@ -788,11 +924,13 @@
       "elevated"
     ],
     "note": "Presidio Heights",
-    "address": "3613 Sacramento St, San Francisco, CA 94118"
+    "address": "3613 Sacramento St, San Francisco, CA 94118",
+    "lat": 37.7874179,
+    "lng": -122.4522343
   },
   {
     "id": "reveille-coffee",
-    "name": "R\u00e9veille Coffee Co.",
+    "name": "Réveille Coffee Co.",
     "neighborhood": "north-beach",
     "activities": [
       "cafe"
@@ -800,7 +938,9 @@
     "experiences": [
       "classic"
     ],
-    "address": "200 Columbus Ave, San Francisco, CA 94133"
+    "address": "200 Columbus Ave, San Francisco, CA 94133",
+    "lat": 37.7972459,
+    "lng": -122.4055336
   },
   {
     "id": "motoring-coffee",
@@ -812,7 +952,7 @@
     "experiences": [
       "discover"
     ],
-    "note": "Cow Hollow \u2014 cars + coffee",
+    "note": "Cow Hollow — cars + coffee",
     "address": "1525 Union St, San Francisco, CA 94123"
   },
   {
@@ -838,7 +978,9 @@
     "experiences": [
       "vibes"
     ],
-    "address": "1191 Pine St, San Francisco, CA 94109"
+    "address": "1191 Pine St, San Francisco, CA 94109",
+    "lat": 37.7901681,
+    "lng": -122.4154112
   },
   {
     "id": "beanstalk",
@@ -850,6 +992,8 @@
     "experiences": [
       "classic"
     ],
-    "address": "724 Bush St, San Francisco, CA 94108"
+    "address": "724 Bush St, San Francisco, CA 94108",
+    "lat": 37.7902062,
+    "lng": -122.4093108
   }
 ]

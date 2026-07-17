@@ -1,15 +1,4 @@
-export type NeighborhoodId =
-  | 'mission'
-  | 'north-beach'
-  | 'marina'
-  | 'haight'
-  | 'fillmore'
-  | 'chinatown'
-  | 'fidi'
-  | 'castro'
-  | 'richmond'
-  | 'nob-hill'
-  | 'outside';
+export type NeighborhoodId = string;
 
 export type ActivityId =
   | 'wine'
@@ -55,20 +44,6 @@ export interface Place {
   dietary?: DietaryId[];
 }
 
-export const NEIGHBORHOODS: Neighborhood[] = [
-  { id: 'mission', label: 'Mission', emoji: '🌮', accent: '#c1512f' },
-  { id: 'north-beach', label: 'North Beach', emoji: '🍝', accent: '#8e2437' },
-  { id: 'marina', label: 'Marina & Cow Hollow', emoji: '⛵', accent: '#2d5da8' },
-  { id: 'haight', label: 'Haight & Cole Valley', emoji: '🌺', accent: '#7b3f9d' },
-  { id: 'fillmore', label: 'Fillmore & NoPa', emoji: '🎷', accent: '#b8860b' },
-  { id: 'chinatown', label: 'Chinatown', emoji: '🏮', accent: '#ce1126' },
-  { id: 'fidi', label: 'Embarcadero & FiDi', emoji: '🏙️', accent: '#17767b' },
-  { id: 'castro', label: 'Castro', emoji: '🌈', accent: '#d1477a' },
-  { id: 'richmond', label: 'Richmond & Sunset', emoji: '🌊', accent: '#2e7d4f' },
-  { id: 'nob-hill', label: 'Nob Hill & Downtown', emoji: '🚡', accent: '#4a2c4e' },
-  { id: 'outside', label: 'Outside the City', emoji: '🏞️', accent: '#5a7d2e' },
-];
-
 export const ACTIVITIES: Activity[] = [
   { id: 'wine', label: 'Wine', emoji: '🍷', accent: '#8e2437' },
   { id: 'beer', label: 'Beer', emoji: '🍺', accent: '#c8861f' },
@@ -93,10 +68,6 @@ export const DIETARY: Dietary[] = [
   { id: 'dairy-free', label: 'Dairy free', emoji: '🥛', accent: '#3d6b8a' },
 ];
 
-export const NEIGHBORHOOD_MAP: Record<NeighborhoodId, Neighborhood> = Object.fromEntries(
-  NEIGHBORHOODS.map((n) => [n.id, n]),
-) as Record<NeighborhoodId, Neighborhood>;
-
 export const ACTIVITY_MAP: Record<ActivityId, Activity> = Object.fromEntries(
   ACTIVITIES.map((a) => [a.id, a]),
 ) as Record<ActivityId, Activity>;
@@ -108,6 +79,10 @@ export const EXPERIENCE_MAP: Record<ExperienceId, Experience> = Object.fromEntri
 export const DIETARY_MAP: Record<DietaryId, Dietary> = Object.fromEntries(
   DIETARY.map((d) => [d.id, d]),
 ) as Record<DietaryId, Dietary>;
+
+export function neighborhoodMap(list: Neighborhood[]): Record<string, Neighborhood> {
+  return Object.fromEntries(list.map((n) => [n.id, n]));
+}
 
 export function slugify(name: string): string {
   return name
