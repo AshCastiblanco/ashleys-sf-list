@@ -954,6 +954,20 @@ a.card-address:hover {
   margin: 0;
 }
 
+.footer-ashley {
+  display: inline-block;
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.85em;
+  font-weight: 400;
+  line-height: 1;
+  color: #1a1a1a;
+  letter-spacing: 0.04em;
+  transform: rotate(-4deg);
+  margin-left: 0.15em;
+  padding: 0 0.05em 0.02em;
+  border-bottom: 1.5px solid color-mix(in srgb, #1a1a1a 40%, transparent);
+}
+
 /* ---- Draft preview banner ---- */
 .draft-banner {
   position: sticky;

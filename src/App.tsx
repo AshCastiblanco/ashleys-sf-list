@@ -396,7 +396,9 @@ export default function App() {
           <span className="tricolor-blue" />
           <span className="tricolor-red" />
         </button>
-        <p>Hecho con amor para Ashley — {city.footerCity}</p>
+        <p>
+          Hecho con Amor — <span className="footer-ashley">Ashley</span>
+        </p>
       </footer>
 
       {cityId === 'sf' && (
